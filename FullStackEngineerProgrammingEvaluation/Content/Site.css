@@ -1,0 +1,48 @@
+﻿
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Allows for dynamic columns based on screen size while still allowing verticle ordering.  */
+ul {
+    column-count: 10;
+    column-gap: 100px;
+    column-rule-style: solid;
+    column-rule-width: thin;
+    column-width: 100px;
+}
+
+li a {
+    color:black;
+}
+
+.jumbotron {
+    padding: 25px 25px 25px 25px;
+}
+
+/* Added the following three dynamic widths to expand on the included sized in bootstrap.css. The largest screen bootstrap goes up to is 1200px*/
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1330px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1520px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .container {
+        max-width: 1710px;
+    }
+}
+
+/* Without adding this, the backdrop was coming in fully opaque */
+.modal-backdrop.in {
+    opacity: 0.8;
+}
