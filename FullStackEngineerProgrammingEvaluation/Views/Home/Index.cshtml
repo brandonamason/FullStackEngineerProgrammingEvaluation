@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Brandon Amason";
+}
+
+<div class="jumbotron">
+    <h1>Programming Evaluation</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>List of Currency Pairs</h2>
+        <p>
+            Type in the filter box below to filter the list of currency pairs. Click on any pair to view the current quote for that pair. 
+        </p>
+        <p>
+            <label>Filter:&nbsp;</label><input ng-model="searchStringInput" ng-change="createSearchString()" />
+        </p>
+    </div>
+    <div class="col-md-12">
+        <ul>
+            <li ng-repeat="record in modifiedSymbols | orderBy : 'symbol'" ng-show="([record.symbol] | filter:searchString).length" ng-click="openQuoteModal(record.symbol)">
+                <a href="">{{record.modifiedSymbol}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+@* Quote Modal - START *@
+<script type="text/ng-template" id="QuoteModal.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Quote</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><b>Currency Pair Symbol</b></td>
+                    <td>{{quoteData.symbol}}</td>
+                </tr>
+                <tr>
+                    <td><b>Bid</b></td>
+                    <td>{{quoteData.bid | currency}}</td>
+                </tr>
+                <tr>
+                    <td><b>Ask</b></td>
+                    <td>{{quoteData.ask | currency}}</td>
+                </tr>
+                <tr>
+                    <td><b>Price</b></td>
+                    <td>{{quoteData.price | currency}}</td>
+                </tr>
+                <tr>
+                    <td><b>Timestamp</b></td>
+                    <td>{{quoteData.timestamp * 1000 | date:'medium' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="cancel()">OK</button>
+    </div>
+</script>
+@* Quote Modal - END *@

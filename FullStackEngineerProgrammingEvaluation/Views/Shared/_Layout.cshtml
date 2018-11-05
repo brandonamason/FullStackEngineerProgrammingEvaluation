@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Programming Evaluation</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body ng-app="app" ng-controller="FullStackEngineerProgrammingEvaluation" ng-init="onLoad()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Brandon Amason</a>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/config")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
